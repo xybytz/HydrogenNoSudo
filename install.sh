@@ -14,8 +14,8 @@ ROBLOX_URL_X86="https://setup.rbxcdn.com/mac/version-9e3fde5d6efe4647-RobloxPlay
 
 # Other install locations (normally you can leave these alone)
 TMP_DIR="/tmp/hydrogen_m_install"
-HYDROGEN_APP_PATH="/Applications/Hydrogen-M.app"
-RBX_PATH="/Applications/Roblox.app"
+HYDROGEN_APP_PATH="~/Applications/Hydrogen-M.app"
+RBX_PATH="~/Applications/Roblox.app"
 ROBLOX_PATH="$RBX_PATH/Contents/MacOS"
 ROBLOX_PLAYER="$ROBLOX_PATH/RobloxPlayer"
 ROBLOX_PLAYER_COPY="$ROBLOX_PATH/RobloxPlayer.copy"
