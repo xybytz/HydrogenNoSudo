@@ -105,11 +105,11 @@ info "Injecting Hydrogen‑M dylib into RobloxPlayer..."
 
 # 8. Resign Roblox app bundle
 info "Codesigning Roblox (admin privileges required)..."
-sudo codesign --force --deep --sign - "/Applications/Roblox.app"
+sudo codesign --force --deep --sign - "~/Applications/Roblox.app"
 
 # 9. Clean up unneeded Roblox bits and caches
 info "Removing Roblox updater..."
-rm -rf "/Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app"
+rm -rf "~/Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app"
 
 #info "Clearing Roblox cache files..."
 #rm -f ~/Library/Preferences/com.roblox.*.plist || true
