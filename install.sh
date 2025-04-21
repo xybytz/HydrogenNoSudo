@@ -13,9 +13,9 @@ ROBLOX_URL_ARM="https://setup.rbxcdn.com/mac/arm64/version-9e3fde5d6efe4647-Robl
 ROBLOX_URL_X86="https://setup.rbxcdn.com/mac/version-9e3fde5d6efe4647-RobloxPlayer.zip"        # Intel (x86_64)
 
 # Other install locations (normally you can leave these alone)
-TMP_DIR="/tmp/hydrogen_m_install"
-HYDROGEN_APP_PATH="~/Applications/Hydrogen-M.app"
-RBX_PATH="~/Applications/Roblox.app"
+TMP_DIR="$HOME/Downloads/hydrogen_m_install"
+HYDROGEN_APP_PATH="$HOME/Applications/Hydrogen-M.app"
+RBX_PATH="$HOME/Applications/Roblox.app"
 ROBLOX_PATH="$RBX_PATH/Contents/MacOS"
 ROBLOX_PLAYER="$ROBLOX_PATH/RobloxPlayer"
 ROBLOX_PLAYER_COPY="$ROBLOX_PATH/RobloxPlayer.copy"
@@ -90,7 +90,7 @@ curl -L "$HYDROGEN_M_URL" -o "$TMP_DIR/Hydrogen-M.zip"
 unzip -oq "$TMP_DIR/Hydrogen-M.zip" -d "$TMP_DIR"
 
 info "Installing Hydrogen‑M to /Applications..."
-sudo rm -rf "$HYDROGEN_APP_PATH"
+rm -rf "$HYDROGEN_APP_PATH"
 mv "$TMP_DIR/Hydrogen-M.app" "$HYDROGEN_APP_PATH"
 
 # 6. Copy RobloxPlayer for modification
@@ -105,14 +105,14 @@ info "Injecting Hydrogen‑M dylib into RobloxPlayer..."
 
 # 8. Resign Roblox app bundle
 info "Codesigning Roblox (admin privileges required)..."
-sudo codesign --force --deep --sign - "~/Applications/Roblox.app"
+codesign --force --deep --sign - "$HOME/Applications/Roblox.app"
 
 # 9. Clean up unneeded Roblox bits and caches
 info "Removing Roblox updater..."
-rm -rf "~/Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app"
+rm -rf "$HOME/Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app"
 
 #info "Clearing Roblox cache files..."
-#rm -f ~/Library/Preferences/com.roblox.*.plist || true
+#rm -f $HOME/Library/Preferences/com.roblox.*.plist || true
 #defaults delete com.roblox.RobloxPlayer       2>/dev/null || true
 #defaults delete com.roblox.RobloxStudio       2>/dev/null || true
 #defaults delete com.roblox.Retention          2>/dev/null || true
