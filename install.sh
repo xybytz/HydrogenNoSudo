@@ -90,7 +90,7 @@ curl -L "$HYDROGEN_M_URL" -o "$TMP_DIR/Hydrogen-M.zip"
 unzip -oq "$TMP_DIR/Hydrogen-M.zip" -d "$TMP_DIR"
 
 info "Installing Hydrogen‑M to /Applications..."
-sudo rm -rf "$HYDROGEN_APP_PATH"
+rm -rf "$HYDROGEN_APP_PATH"
 mv "$TMP_DIR/Hydrogen-M.app" "$HYDROGEN_APP_PATH"
 
 # 6. Copy RobloxPlayer for modification
@@ -105,7 +105,7 @@ info "Injecting Hydrogen‑M dylib into RobloxPlayer..."
 
 # 8. Resign Roblox app bundle
 info "Codesigning Roblox (admin privileges required)..."
-sudo codesign --force --deep --sign - "$HOME/Applications/Roblox.app"
+codesign --force --deep --sign - "$HOME/Applications/Roblox.app"
 
 # 9. Clean up unneeded Roblox bits and caches
 info "Removing Roblox updater..."
